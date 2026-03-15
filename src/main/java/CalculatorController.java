@@ -17,8 +17,10 @@ public class CalculatorController {
 
             double sum = num1 + num2;
             double product = num1 * num2;
+            double subtract = num1 - num2;
+            double divide = num2 != 0 ? num1 / num2 : Double.NaN;
 
-            resultLabel.setText("Sum: " + sum + ", Product: " + product);
+            resultLabel.setText("Sum: " + sum + ", Product: " + product + ", Subtraction: " + subtract + ", Division: " + (Double.isNaN(divide) ? "Undefined" : divide));
 
             // Save to DB
             ResultService.saveResult(num1, num2, sum, product);
